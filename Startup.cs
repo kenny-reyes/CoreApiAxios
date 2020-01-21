@@ -1,9 +1,12 @@
+using api.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace api
 {
@@ -31,6 +34,11 @@ namespace api
                             .WithOrigins("http://localhost:3000");
                     });
             });
+            
+            services.AddDbContext<MyAppDbContext>(o =>
+                o.UseSqlServer(Configuration.GetConnectionString("MyAppDbContext")));
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "My API", Version = "v1"}); });
         }

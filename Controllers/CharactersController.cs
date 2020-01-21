@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Context;
 using api.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,6 +13,7 @@ namespace api.Controllers
     [Route("[controller]")]
     public class CharactersController : ControllerBase
     {
+        private readonly MyAppDbContext _context = null;
         private readonly ILogger<CharactersController> _logger;
 
         public CharactersController(ILogger<CharactersController> logger)
@@ -22,14 +24,7 @@ namespace api.Controllers
         [HttpGet]
         public IEnumerable<Character> Get()
         {
-            return new List<Character>{new Character
-            {
-                gender = "male",
-                id = 1,
-                image = "https://rickandmortyapi.…/character/avatar/1.jpeg",
-                name = "Rick",
-                species = "human"
-            }};
+            return _context.Characters.ToList();
         }
     }
 }
