@@ -20,6 +20,7 @@ namespace api
         {
             services.AddCors(options =>
             {
+                // better in appsettings
                 options.AddPolicy("AllowAllHeaders",
                     corsbuilder =>
                     {
