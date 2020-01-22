@@ -1,0 +1,25 @@
+API
+paginacion
+mejor README (MK)
+separacion de C-R-UD con dapper y mediator
+Contenedores y orquestacion en local
+test integracion
+automatizacion del update de la base de datos en desarrollo setmigrations
+seed base de datos
+Arquitectura, no hay arquitectura como tal
+securizacion
+Activar el watching
+gestion del proyecto con git branching o gitflow dependiendo de la envergadura
+Gestion de autentication y autorization 
+Gestion de las exepciones (quizas con problems details)
+Añadir repositorios
+Validacion dominio
+añadir fltros para los get
+set environment variables
+
+SPA
+gestion de estados (REDUX o react context+hooks)
+Gestion de la SPA desde el proyecto principal
+contenedor para los staticos en docker, quizas en NGIX
+
+
