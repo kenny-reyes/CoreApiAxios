@@ -16,8 +16,9 @@ namespace api.Controllers
         private readonly MyAppDbContext _context = null;
         private readonly ILogger<CharactersController> _logger;
 
-        public CharactersController(ILogger<CharactersController> logger)
+        public CharactersController(MyAppDbContext context, ILogger<CharactersController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
