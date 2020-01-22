@@ -23,9 +23,17 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Character> Get()
+        public IEnumerable<Character> GetCharacters()
         {
             return _context.Characters.ToList();
+        }
+        
+        [HttpPost]
+        public async Task<ActionResult<Character>> CreateCharacter([FromBody] Character character)
+        {
+            _context.Add(character);
+            await _context.SaveChangesAsync();
+            return Ok();
         }
     }
 }
